@@ -5,6 +5,10 @@ class WorkersController < ApplicationController
   # GET /workers.json
   def index
     @workers = Worker.all
+    if params[:q].present?
+      @workers = @workers.where('worker.project = ? OR worker.name = ?', params[:q])
+    end
+
   end
 
   # GET /workers/1

@@ -12,6 +12,6 @@ class AssignmentsController < ApplicationController
     worker = Worker.find(params[:worker_id])
     project.workers.delete(worker)
     project.save
-    redirect_to project_path(project)
+    redirect_to root_path(project)
   end
 end

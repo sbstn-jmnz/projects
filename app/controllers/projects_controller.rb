@@ -6,6 +6,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @workers = Worker.all
+    if params[:q].present?
+      @workers = @workers.where("name LIKE ?", "%" + params[:q] + "%")
+    end
   end
 
   # GET /projects/1
