@@ -5,5 +5,10 @@
   <%= @worker.name %>
 </p>
 
+<strong>Projects:</strong>
+<% @worker.projects.each do |project|%>
+  <%= project.name %>
+  <br>
+<% end %>
 <%= link_to 'Edit', edit_worker_path(@worker) %> |
 <%= link_to 'Back', workers_path %>
